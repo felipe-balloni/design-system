@@ -10,7 +10,7 @@ import "./styles/global.css";
 
 export function App() {
     return (
-        <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-900 text-gray-100">
+        <div className="flex h-screen w-screen flex-col items-center justify-center text-gray-100">
             <header className="flex flex-col items-center">
                 <Logo />
 
