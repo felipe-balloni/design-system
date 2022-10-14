@@ -1,11 +1,21 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { within, userEvent, waitFor } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
+import { rest } from "msw";
 import { SingIn } from "./SingIn";
 
 export default {
     title: "Pages/SingIn",
     component: SingIn,
+    parameters: {
+        msw: {
+            handlers: [
+                rest.post("/api/login", (req, res, ctx) => {
+                    return res(ctx.json({ message: "Login realizado!" }));
+                }),
+            ],
+        },
+    },
 } as ComponentMeta<typeof SingIn>;
 
 const Template: ComponentStory<typeof SingIn> = (args) => <SingIn />;

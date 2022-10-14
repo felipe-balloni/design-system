@@ -1,5 +1,6 @@
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import axios from "axios";
 import { Button } from "../components/Button";
 import { Checkbox } from "../components/Checkbox";
 import { Heading } from "../components/Heading";
@@ -12,8 +13,12 @@ export function SingIn() {
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
+        axios.post("/api/login", {
+            email: "usuario-exemplo@exemple.com",
+            password: "123456",
+            rememberMe: true,
+        });
         setIsUserSignedIn(true);
-        alert("Submit");
     }
 
     return (
