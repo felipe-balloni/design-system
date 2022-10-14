@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonProps } from "./Button";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Button } from "./Button";
 
 export default {
     title: "Components/Button",
@@ -8,31 +8,49 @@ export default {
         children: "Create account",
     },
     argTypes: {
+        children: {
+            description: "This is button text",
+            defaultValue: "Create account",
+            name: "Text",
+            control: {
+                type: "text",
+            },
+        },
+        className: {
+            name: "ClassName",
+            description: "Extra ClassNames of text component",
+            control: {
+                type: null,
+            },
+        },
         asChild: {
             table: {
                 disable: true,
             },
         },
     },
-} as Meta<ButtonProps>;
+} as ComponentMeta<typeof Button>;
 
-export const Primary: StoryObj<ButtonProps> = {};
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const AsChild: StoryObj<ButtonProps> = {
-    args: {
-        asChild: true,
-        children: (
-            <a href="#" className="block text-center">
-                You can use an Anchor Tag, properties and contents when prop
-                asChild.
-            </a>
-        ),
-    },
-    argTypes: {
-        children: {
-            table: {
-                disable: true,
-            },
+export const Primary = Template.bind({});
+
+export const asChild = Template.bind({});
+
+asChild.args = {
+    asChild: true,
+    children: (
+        <a href="#" className="block text-center">
+            You can use an Anchor Tag, properties and contents when prop asChild
+            declared.
+        </a>
+    ),
+};
+
+asChild.argTypes = {
+    children: {
+        table: {
+            disable: true,
         },
     },
 };

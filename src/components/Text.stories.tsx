@@ -7,6 +7,7 @@ export default {
     argTypes: {
         children: {
             description: "This is text content",
+            defaultValue: "Here your Text",
             name: "Text",
             control: {
                 type: "text",
@@ -18,6 +19,13 @@ export default {
             control: {
                 type: "inline-radio",
                 options: ["small", "medium", "large"],
+            },
+        },
+        className: {
+            name: "ClassName",
+            description: "Extra ClassNames of text component",
+            control: {
+                type: null,
             },
         },
         asChild: {
@@ -33,21 +41,18 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 export const Small = Template.bind({});
 
 Small.args = {
-    children: "Hello World",
     size: "small",
 };
 
 export const Medium = Template.bind({});
 
 Medium.args = {
-    children: "Hello World",
     size: "medium",
 };
 
 export const Large = Template.bind({});
 
 Large.args = {
-    children: "Hello World",
     size: "large",
 };
 
@@ -60,4 +65,12 @@ asChild.args = {
             You may pass a HTML tag, properties and contents when prop asChild.
         </p>
     ),
+};
+
+asChild.argTypes = {
+    children: {
+        table: {
+            disable: true,
+        },
+    },
 };
