@@ -7,7 +7,7 @@ export default {
     component: Checkbox,
     decorators: [
         (Story) => (
-            <label id="l1" htmlFor="c1" className="flex items-center space-x-2">
+            <label id="l1" htmlFor="c1" className="flex items-center gap-2">
                 {Story()}
                 <Text size="small" className="text-gray-200">
                     Lembrar de mim por 30 dias

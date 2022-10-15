@@ -30,7 +30,7 @@ export interface TextInputElementProps
 function TextInputElement(props: TextInputElementProps) {
     return (
         <input
-            className="flex-1 bg-transparent text-sm text-gray-100 outline-none placeholder:text-gray-400 disabled:cursor-not-allowed disabled:text-gray-100/30 disabled:placeholder-gray-400/30"
+            className="flex-1 bg-transparent text-sm text-gray-100 caret-cyan-300 outline-none placeholder:text-gray-400 disabled:cursor-not-allowed disabled:text-gray-100/30 disabled:placeholder-gray-400/30"
             {...props}
         />
     );
